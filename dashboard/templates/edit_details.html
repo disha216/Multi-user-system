@@ -1,0 +1,39 @@
+<!-- edit_details.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Details</title>
+    <link rel="stylesheet" href="{% static 'css/edit_details.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Your Details</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="firstname" value="{{ user.first_name }}" placeholder="First Name" required>
+            <input type="text" name="lastname" value="{{ user.last_name }}" placeholder="Last Name" required>
+            <input type="email" name="email" value="{{ user.email }}" placeholder="Email" required>
+            <input type="text" name="username" value="{{ user.username }}" placeholder="Username" required>
+            <input type="text" name="line1" value="{{ user.line1 }}" placeholder="Address Line 1" required>
+            <input type="text" name="city" value="{{ user.city }}" placeholder="City" required>
+            <input type="text" name="state" value="{{ user.state }}" placeholder="State" required>
+            <input type="number" name="pincode" value="{{ user.pincode }}" placeholder="Pincode" required>
+            <div class="profilep">
+                <label for="pphoto">Profile Picture</label>
+                <input type="file" name="pphoto" id="">
+            </div>
+            <input type="submit" value="Update Details">
+        </form>
+        <!--<div class="message">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}-->
+        </div>
+    </div>
+</body>
+</html>

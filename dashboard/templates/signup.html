@@ -4,39 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
     <div class="form-container">
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <!-- <div class="user">
-            <label for="usertype">Usertype</label>
-            <select name="uservalue" id="">
-                <option value="">Select</option>
-                <option value="doctor">Doctor</option>
-                <option value="client">Client</option>
-            </select>
-        </div> -->
-        <h1>Please sign up</h1>
-        <input type="text" name="uservalue" id="" placeholder="Usertype eg-client,doctor" required>
-        <input type="text" name="firstname" id="" placeholder="Firstname" required>
-        <input type="text" name="lastname" id="" placeholder="Lastname"required>
-        <input type="email" name="email" id="" placeholder="Email"required>
-        <input type="text" name="line1" id="" placeholder="Address line1"required>
-        <input type="text" name="city" id="" placeholder="City"required>
-        <input type="text" name="state" id="" placeholder="State"required>
-        <input type="number" name="pincode" id="" placeholder="Pincode"required>
-        <input type="text" name="username" id="" placeholder="Username"required>
-        <input type="password" name="pass" id="" placeholder="Password"required>
-        <input type="password" name="cpass" id="" placeholder="Confirm password"required>
-        <div class="profilep">
-            <label for="pphoto">Profile picture</label>
-            <input type="file" name="pphoto" id="" required>
-        </div>
-        <input type="submit" value="Signup">
-    </form>
-</div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Please Sign Up</h1>
+            
+            <!-- Display error messages -->
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="user">
+                <label for="uservalue">User Type</label>
+                <select name="uservalue" id="uservalue" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="client">Client</option>
+                </select>
+            </div>
+
+            <input type="text" name="firstname" id="firstname" placeholder="First Name" required autocomplete="given-name">
+            <input type="text" name="lastname" id="lastname" placeholder="Last Name" required autocomplete="family-name">
+            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="email">
+            <input type="text" name="line1" id="line1" placeholder="Address Line 1" required autocomplete="address-line1">
+            <input type="text" name="city" id="city" placeholder="City" required autocomplete="address-level2">
+            <input type="text" name="state" id="state" placeholder="State" required autocomplete="address-level1">
+            <input type="number" name="pincode" id="pincode" placeholder="Pincode" required autocomplete="postal-code">
+            <input type="text" name="username" id="username" placeholder="Username" required autocomplete="username">
+            <input type="password" name="pass" id="pass" placeholder="Password" required autocomplete="new-password">
+            <input type="password" name="cpass" id="cpass" placeholder="Confirm Password" required autocomplete="new-password">
+
+            <div class="profilep">
+                <label for="pphoto">Profile Picture</label>
+                <input type="file" name="pphoto" id="pphoto" required>
+            </div>
+
+            <input type="submit" value="Signup">
+        </form>
+    </div>
 </body>
 </html>

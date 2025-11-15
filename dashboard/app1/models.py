@@ -1,19 +1,15 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
+class CustomUser(AbstractUser):
+    # Additional fields for the custom user
+    usertype = models.CharField(max_length=50, choices=[('doctor', 'Doctor'), ('client', 'Client')], default='client')
+    line1 = models.CharField(max_length=50, blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
+    state = models.CharField(max_length=50, blank=True, null=True)
+    pincode = models.IntegerField(blank=True, null=True)
+    pphoto = models.ImageField(upload_to="images", blank=True, null=True)
 
-
-class user(models.Model):
-    firstname= models.CharField( max_length=50)
-    lastname= models.CharField( max_length=50)
-    email=models.EmailField( max_length=254)
-    username=models.CharField( max_length=50)
-    password= models.CharField(max_length=50)
-    cpassword= models.CharField( max_length=50)
-    line1= models.CharField(max_length=50)
-    city=models.CharField( max_length=50)
-    state = models.CharField( max_length=50)
-    pincode=models.IntegerField()
-    pphoto=models.ImageField( upload_to="images")
-    usertype=models.CharField(max_length=50)
+    def __str__(self):
+        return self.username
 

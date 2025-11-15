@@ -1,58 +1,114 @@
-body{
-    background-color: #EEF5FF;
-    text-transform: capitalize;
+/* Reset some default browser styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
 }
-.main{
-    
-    width: 750px;
-    margin: auto;
-    border: 1px solid black;
-    padding: 50px;
-    background-color: white;
+
+/* Set a background color and font */
+body {
+    background-color: #f4f4f4; /* Light background for contrast */
+    font-family: 'Arial', sans-serif; /* Clean font for readability */
+    line-height: 1.6; /* Increase line height for better readability */
 }
-.container{
-    display: flex;
-    flex-direction: row;
-}
-.left{
-    width: 350px;
-    margin-right: 30px;
-}
-.right{
-    width: 350px;
-}
-.left div{
-    margin-bottom:40px ;
-    border-bottom: 1px solid black;
-    padding: 20px 20px 5px 10px;
-}
-.right div{
-    margin-bottom:40px ;
-    border-bottom: 1px solid black;
-    padding: 20px 20px 5px 10px;
-}
-h3{
+
+/* Header styles */
+h3 {
     text-align: center;
+    margin-top: 20px;
+    color: #333; /* Darker text color */
 }
-.image{
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 50px;
+
+/* Image container styles */
+.image {
+    text-align: center;
+    margin: 20px 0;
 }
-img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+
+.image img {
+    border-radius: 50%; /* Circular profile picture */
+    width: 100px; /* Fixed width for profile picture */
+    height: 100px; /* Fixed height for profile picture */
+    border: 2px solid #007BFF; /* Blue border around the picture */
 }
-button[type=submit]{
-    padding: 10px 20px;
-    border: none;
-    background-color: #86B6F6;
-    border-radius: 5px;
-    font-size: 14px;
+
+/* Main container styles */
+.main {
+    display: flex; /* Flexbox for responsive layout */
+    justify-content: center; /* Center content horizontally */
+    padding: 20px; /* Add padding for space */
+    background-color: white; /* White background for the main content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 80%;
+    margin: 0 auto;
 }
-form{
-    width: 90px;
-    margin: auto;
+
+/* Container for left and right sections */
+.container {
+    display: flex; /* Flexbox for side-by-side layout */
+    width: 100%; /* Full width */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Left and right column styles */
+.left, .right {
+    flex: 1; /* Equal width for both columns */
+    padding: 20px; /* Padding around columns */
+}
+
+/* Individual detail styling */
+.left div, .right div {
+    margin-bottom: 20px; /* Space between details */
+    padding: 10px; /* Padding around each detail */
+    background-color: #f8f9fa; /* Light grey background for details */
+    border-radius: 4px; /* Rounded corners for details */
+    border: 1px solid #dee2e6; /* Light border for separation */
+}
+
+/* Logout button styling */
+form {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+
+
+
+.button-container {
+    width: 500px;
+    margin: 0 auto;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space between the buttons */
+    margin-top: 20px; /* Space above buttons */
+}
+
+.edit-button, .logout-button {
+    display: inline-block; /* Inline block for proper spacing */
+    padding: 10px ; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.edit-button {
+    margin-top: 17px;
+    height: 20px;
+    background-color: #28a745; /* Green background */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.edit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.logout-button {
+    background-color: #dc3545; /* Red background for logout */
+    color: white; /* White text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
 }
